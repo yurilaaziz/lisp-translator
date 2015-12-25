@@ -102,12 +102,12 @@
   (t (filtre l db (1+ v)))
 ))
 
-     (defun scanner (str)
-      (if (not (streamp str))
-          (scanner (make-string-input-stream str))
-        (if (listen str)
-            (cons (read str) (scanner str))
-                 nil)))
+(defun scanner (str)
+  (if (not (streamp str))
+    (scanner (make-string-input-stream str))
+     (if (listen str)
+       (cons (read str) (scanner str))
+              nil)))
 
 
 (defun translate ()
